@@ -19,9 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// DINETH ============================
+// --> Classroom
+
 Route::post('addclassroom',[ClassroomController::class, 'postClassroom']);
 Route::get('getallclassrooms', [ClassroomController::class, 'getAllClassrooms']);
 Route::delete('deleteclassroom/{id}', [ClassroomController::class, 'deleteClassroom']);
+Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']);
+Route::get('/timeandclass/show-report', [ClassroomController::class, 'showReport']);
 
 Route::get('/timeandclass/report', function() {
     PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
@@ -29,6 +34,8 @@ Route::get('/timeandclass/report', function() {
     return $pdf->download('report.pdf');
 });
 
-Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']);
-Route::get('/timeandclass/show-report', [ClassroomController::class, 'showReport']);
+// --> Time Scheduling
+
+
+
 
