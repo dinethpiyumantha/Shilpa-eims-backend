@@ -16,10 +16,12 @@ class TimescheduleController extends Controller
     public function addSchedule (Request $request) {
         $timeschedule = new timeschedule();
 
+        $timeschedule->type = $request->input('type');
         $timeschedule->spdate = $request->input('spdate');
         $timeschedule->from = $request->input('from');
         $timeschedule->to = $request->input('to');
         $timeschedule->review = $request->input('review');
+        $timeschedule->day = $request->input('day');
         $timeschedule->tid = $request->input('tid');
         $timeschedule->sid = $request->input('sid');
         $timeschedule->cid = $request->input('cid');
@@ -50,10 +52,12 @@ class TimescheduleController extends Controller
             ]);
         }
 
+        $timeschedule->type = $request->input('type');
         $timeschedule->spdate = $request->input('spdate');
         $timeschedule->from = $request->input('from');
         $timeschedule->to = $request->input('to');
         $timeschedule->review = $request->input('review');
+        $timeschedule->day = $request->input('day');
         $timeschedule->tid = $request->input('tid');
         $timeschedule->sid = $request->input('sid');
         $timeschedule->cid = $request->input('cid');

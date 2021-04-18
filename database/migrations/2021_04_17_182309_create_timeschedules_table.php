@@ -15,13 +15,15 @@ class CreateTimeschedulesTable extends Migration
     {
         Schema::create('timeschedules', function (Blueprint $table) {
             $table->id();
-            $table->date('spdate');
-            $table->time('from', $precision = 2);
-            $table->time('to', $precision = 2);
-            $table->text('review');
-            $table->text('tid');
-            $table->text('sid');
-            $table->text('cid');
+            $table->text('type');                   //Type
+            $table->date('spdate');                 //Date
+            $table->time('from', $precision = 2);   //Time From
+            $table->time('to', $precision = 2);     //Time To
+            $table->text('review');                 //Review
+            $table->text('day');                    //Day
+            $table->text('tid');                    //Teacher
+            $table->text('sid');                    //Subject
+            $table->text('cid');                    //Classroom
             $table->timestamps();
         });
     }

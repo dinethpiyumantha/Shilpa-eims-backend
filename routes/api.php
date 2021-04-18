@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // DINETH ============================
 // --> Classroom
-Route::get('getallclassrooms', [ClassroomController::class, 'getAllClassrooms']);
+Route::get('classrooms/getall', [ClassroomController::class, 'getAllClassrooms']);
 Route::post('addclassroom',[ClassroomController::class, 'postClassroom']);
 Route::delete('deleteclassroom/{id}', [ClassroomController::class, 'deleteClassroom']);
 Route::put('putclassroom/{classroom}', [ClassroomController::class, 'putClassroom']);
