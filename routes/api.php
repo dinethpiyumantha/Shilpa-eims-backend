@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\EmployeesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,14 @@ Route::get('/timeandclass/report', function() {
     return $pdf->download('report.pdf');
 });
 
-// --> Time Scheduling
 
 
+// ASANKA ============================
+// --> Employee
+
+Route::get('employees/getall',[EmployeesController::class,'getAllEmployees']); //get databse details
+Route::post('employees/add',[EmployeesController::class,'addEmloyee']); //insert data
+Route::get('employees/getItem',[EmployeesController::class,'getItems']); //get databse details
+Route::delete('employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
 
 
