@@ -25,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 // DINETH ============================
 // --> Classroom
 Route::get('classrooms/getall', [ClassroomController::class, 'getAllClassrooms']); //ClassroomController.getAllClassrooms()
@@ -54,12 +55,12 @@ Route::post('addNotice',[NotificationController::class, 'postNotice']);
 Route::get('allNotice',[NotificationController::class, 'getNotice']);
 Route::delete('deleteNotice/{id}', [NotificationController::class, 'deleteNotice']);
 
+
 // LAKSHAN ============================
 // --> Student
 Route::get('getallstudents', [StudentsController::class, 'getAllStudents']);
 Route::post('students/add',[StudentsController::class, 'addStudent']);
 Route::delete('student/delete/{id}', [StudentsController::class, 'deleteStudent']);
-
 
 
 // DEEN ============================
