@@ -43,7 +43,6 @@ Route::get('/timeandclass/report', function() {
     PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
     $pdf = PDF::loadView('report');
     return $pdf->download('report.pdf');
-
 });
 
 
@@ -55,6 +54,3 @@ Route::get('employees/getall',[EmployeesController::class,'getAllEmployees']); /
 Route::post('employees/add',[EmployeesController::class,'addEmloyee']); //insert data
 Route::get('employees/getItem',[EmployeesController::class,'getItems']); //get databse details
 Route::delete('employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
-
-});
-
