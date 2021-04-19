@@ -24,12 +24,19 @@ class AttendanceController extends Controller
 
 
 
-    public function getAlldata()
-    {
-        $allData= attendance::all();
-        return response()->json(['allData'=>$allData],404);
-
+    public function getAlldata () {
+        $allData = attendance::all();
+        return response()->json(['allData'=>$allData], 200);
     }
+
+
+    public function getAlldataupdate ($id) {
+        $updateA = attendance::find($id);
+        $response=['updateA'=>$updateA];
+        return response()->json($response, 200);
+    }
+
+   
 
 
     public function deleteAttendance($id)
@@ -66,6 +73,8 @@ class AttendanceController extends Controller
         return response()->json(['msg'=>$Attendance],201);
 
    }
+
+
 
 
 }

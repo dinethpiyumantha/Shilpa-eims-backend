@@ -47,10 +47,7 @@ Route::get('/timeandclass/report', function() {
 // -- sadeesha
 
 Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
-Route::get('get/data', [AttendanceController::class, 'getAlldata']);
+Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
+Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
 Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
 Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
-
-
-
-
