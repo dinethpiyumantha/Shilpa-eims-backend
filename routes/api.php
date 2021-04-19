@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,12 @@ Route::get('/timeandclass/report', function() {
     return $pdf->download('report.pdf');
 });
 
-// --> Time Scheduling
+// -- sadeesha
+
+Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
+Route::get('get/data', [AttendanceController::class, 'getAlldata']);
+Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
+Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
 
 
 
