@@ -9,6 +9,7 @@ use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,3 +77,12 @@ Route::get('employees/getall',[EmployeesController::class,'getAllEmployees']); /
 Route::post('employees/add',[EmployeesController::class,'addEmloyee']); //insert data
 Route::get('employees/getItem',[EmployeesController::class,'getItems']); //get databse details
 Route::delete('employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
+
+
+// SADISHA ============================
+// --> Attendance
+Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
+Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
+Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
+Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
+Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
