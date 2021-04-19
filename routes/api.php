@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\NotificationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,14 @@ Route::get('/timeandclass/report', function() {
     return $pdf->download('report.pdf');
 });
 
-// --> Time Scheduling
+//Thisara======================
+// --> Notification management
+
+Route::post('addNotice',[NotificationController::class, 'postNotice']);
+
+Route::get('allNotice',[NotificationController::class, 'getNotice']);
+
+Route::delete('deleteNotice/{id}', [NotificationController::class, 'deleteNotice']);
 
 
 

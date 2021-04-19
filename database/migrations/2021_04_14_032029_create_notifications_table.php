@@ -13,14 +13,17 @@ class CreateNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('notifications', function (Blueprint $table) {
+        Schema::create ('notifications', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->text('heder');
             $table->text('body');
-            $table->DATETIME('date');
+            $table->text('date');
             $table->text('image');
+            $table->text('postBy');
+
         });
+
     }
 
     /**
