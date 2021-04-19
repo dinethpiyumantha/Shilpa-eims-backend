@@ -3,8 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +43,18 @@ Route::get('/timeandclass/report', function() {
     PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
     $pdf = PDF::loadView('report');
     return $pdf->download('report.pdf');
+
 });
+
+
+
+// ASANKA ============================
+// --> Employee
+
+Route::get('employees/getall',[EmployeesController::class,'getAllEmployees']); //get databse details
+Route::post('employees/add',[EmployeesController::class,'addEmloyee']); //insert data
+Route::get('employees/getItem',[EmployeesController::class,'getItems']); //get databse details
+Route::delete('employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
+
+});
+
