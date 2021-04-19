@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\ExpensesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,13 @@ Route::get('/timeandclass/report', function() {
 });
 
 // --> Time Scheduling
+
+
+// --> Small Expenses
+
+Route::post('addexpense',[ExpensesController::class, 'postExpense']);
+Route::get('getallexpenses', [ExpensesController::class, 'getAllExpenses']);
+Route::delete('deleteexpense/{id}', [ExpensesController::class, 'deleteExpense']);
 
 
 
