@@ -46,27 +46,16 @@ Route::get('/timeandclass/report', function() {
 });
 
 
-
-
+// DEEN ============================
 // --> Small Expenses
-
 Route::post('addexpense',[ExpensesController::class, 'postExpense']);
 Route::get('getallexpenses', [ExpensesController::class, 'getAllExpenses']);
 Route::delete('deleteexpense/{id}', [ExpensesController::class, 'deleteExpense']);
 
 
-
 // ASANKA ============================
 // --> Employee
-
 Route::get('employees/getall',[EmployeesController::class,'getAllEmployees']); //get databse details
 Route::post('employees/add',[EmployeesController::class,'addEmloyee']); //insert data
 Route::get('employees/getItem',[EmployeesController::class,'getItems']); //get databse details
 Route::delete('employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 5aebfedee987c7480b29a161b66719f634a666d4
