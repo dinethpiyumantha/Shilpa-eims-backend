@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
@@ -44,6 +45,13 @@ Route::get('/timeandclass/report', function() {
     $pdf = PDF::loadView('report');
     return $pdf->download('report.pdf');
 });
+
+
+// LAKSHAN ============================
+// --> Student
+Route::get('getallstudents', [StudentsController::class, 'getAllStudents']);
+Route::post('students/add',[StudentsController::class, 'addStudent']);
+Route::delete('student/delete/{id}', [StudentsController::class, 'deleteStudent']);
 
 
 // DEEN ============================
