@@ -45,7 +45,10 @@ class ClassroomController extends Controller
     }
 
     //Update Classroom
-    
+    public function putClassroom (Request $request, Classroom $classroom) {
+        $classroom->update($request->all());
+        return response()->json($classroom, 200);
+    }
 
     //Report
     public function showReport () {
