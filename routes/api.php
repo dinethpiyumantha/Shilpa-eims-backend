@@ -3,10 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +47,15 @@ Route::get('/timeandclass/report', function() {
 
 
 
+
+// --> Small Expenses
+
+Route::post('addexpense',[ExpensesController::class, 'postExpense']);
+Route::get('getallexpenses', [ExpensesController::class, 'getAllExpenses']);
+Route::delete('deleteexpense/{id}', [ExpensesController::class, 'deleteExpense']);
+
+
+
 // ASANKA ============================
 // --> Employee
 
@@ -54,3 +63,10 @@ Route::get('employees/getall',[EmployeesController::class,'getAllEmployees']); /
 Route::post('employees/add',[EmployeesController::class,'addEmloyee']); //insert data
 Route::get('employees/getItem',[EmployeesController::class,'getItems']); //get databse details
 Route::delete('employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 5aebfedee987c7480b29a161b66719f634a666d4
