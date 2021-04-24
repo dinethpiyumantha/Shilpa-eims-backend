@@ -9,6 +9,8 @@ use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\TeachersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 // DINETH ============================
 // --> Classroom
 Route::get('classrooms/getall', [ClassroomController::class, 'getAllClassrooms']); //ClassroomController.getAllClassrooms()
@@ -37,6 +40,7 @@ Route::get('timeschedule/getall', [TimescheduleController::class, 'getAllSchedul
 Route::post('timeschedule/add', [TimescheduleController::class, 'addSchedule']);
 Route::delete('timeschedule/delete/{id}', [TimescheduleController::class, 'deleteSchedule']);
 Route::put('timeschedule/edit/{id}', [TimescheduleController::class, 'editSchedule']);
+Route::get('timeschedule/relget', [TimescheduleController::class, 'getRelatedAll']);
 
 // --> Report
 Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']); //PDF Report
@@ -54,12 +58,12 @@ Route::post('addNotice',[NotificationController::class, 'postNotice']);
 Route::get('allNotice',[NotificationController::class, 'getNotice']);
 Route::delete('deleteNotice/{id}', [NotificationController::class, 'deleteNotice']);
 
+
 // LAKSHAN ============================
 // --> Student
 Route::get('getallstudents', [StudentsController::class, 'getAllStudents']);
 Route::post('students/add',[StudentsController::class, 'addStudent']);
 Route::delete('student/delete/{id}', [StudentsController::class, 'deleteStudent']);
-
 
 
 // DEEN ============================
@@ -75,3 +79,19 @@ Route::get('employees/getall',[EmployeesController::class,'getAllEmployees']); /
 Route::post('employees/add',[EmployeesController::class,'addEmloyee']); //insert data
 Route::get('employees/getItem',[EmployeesController::class,'getItems']); //get databse details
 Route::delete('employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
+
+
+// SADISHA ============================
+// --> Attendance
+Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
+Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
+Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
+Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
+Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
+
+// SANDANI ============================
+// --> Teachers
+Route::get('teachers/getall', [TeachersController::class, 'getAllTeachers']);
+Route::post('teachers/add',[TeachersController::class, 'postTeacher']);
+Route::delete('teachers/delete/{id}', [TeachersController::class, 'deleteTeacher']);
+Route::put('teachers/edit/{teacher}', [TeachersController::class, 'putTeacher']);
