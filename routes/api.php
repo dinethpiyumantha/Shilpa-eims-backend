@@ -10,6 +10,7 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\TeachersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::get('timeschedule/getall', [TimescheduleController::class, 'getAllSchedul
 Route::post('timeschedule/add', [TimescheduleController::class, 'addSchedule']);
 Route::delete('timeschedule/delete/{id}', [TimescheduleController::class, 'deleteSchedule']);
 Route::put('timeschedule/edit/{id}', [TimescheduleController::class, 'editSchedule']);
+Route::get('timeschedule/relget', [TimescheduleController::class, 'getRelatedAll']);
 
 // --> Report
 Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']); //PDF Report
@@ -86,3 +88,10 @@ Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
 Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
 Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
 Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
+
+// SANDANI ============================
+// --> Teachers
+Route::get('teachers/getall', [TeachersController::class, 'getAllTeachers']);
+Route::post('teachers/add',[TeachersController::class, 'postTeacher']);
+Route::delete('teachers/delete/{id}', [TeachersController::class, 'deleteTeacher']);
+Route::put('teachers/edit/{teacher}', [TeachersController::class, 'putTeacher']);

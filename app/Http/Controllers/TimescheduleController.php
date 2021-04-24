@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\timeschedule;
+use App\Models\Subjects;
+use App\Models\Teachers;
 use Illuminate\Http\Request;
+use \DB;
 
 class TimescheduleController extends Controller
 {
@@ -64,5 +67,15 @@ class TimescheduleController extends Controller
 
         $timeschedule->save();
         return response()->json(['return'=>$timeschedule, 'response'=>true], 200);
+    }
+
+
+    public function getRelatedAll () {
+        return response()->json(['allSchedules'=>(
+            DB::table('timeschedules')
+            ->join('teachers', 'teachers.id', 'timeschedules.tid')
+            ->join('subjects', 'subjects.id', 'timeschedules.sid')
+            ->get())] , 200);
+        
     }
 }
