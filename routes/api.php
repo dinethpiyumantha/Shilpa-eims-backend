@@ -4,6 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\SubjectMainController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +45,11 @@ Route::get('/timeandclass/report', function() {
 Route::get('getallstudents', [StudentsController::class, 'getAllStudents']);
 Route::post('students/add',[StudentsController::class, 'addStudent']);
 Route::delete('student/delete/{id}', [StudentsController::class, 'deleteStudent']);
+Route::get('students/edit/{id}', [StudentsController::class, 'getStudentsDetails']); //for update page
+
+
+// --> SubjectMain
+Route::get('subjetmainget', [SubjectMainController::class, 'getAllSubjectMain']);  //getAllSubjectMain = Controller Methord
 
 
 // --> Time Scheduling

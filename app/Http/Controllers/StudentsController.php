@@ -56,6 +56,22 @@ class StudentsController extends Controller
         ]);
     }
 
+
+    //Edit page
+    public function getStudentsDetails($id) {
+        $students = Students::find($id);
+         $response = [
+
+            'students'=> $students
+
+        ];
+
+        return response()->json($response,200);
+
+
+
+    }
+
 }
 
 
