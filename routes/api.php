@@ -62,6 +62,8 @@ Route::get('students/edit/{id}', [StudentsController::class, 'getStudentsDetails
 
 // --> SubjectMain
 Route::get('subjetmainget', [SubjectMainController::class, 'getAllSubjectMain']);  //getAllSubjectMain = Controller Methord
+Route::post('subject/add',[SubjectMainController::class, 'addSubject']); //Add subject
+Route::delete('subject/delete/{id}', [SubjectMainController::class, 'deleteSubject']);
 
 
 // --> Small Expenses
