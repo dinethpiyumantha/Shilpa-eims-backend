@@ -10,12 +10,14 @@ use \DB;
 
 class TimescheduleController extends Controller
 {
-    //
+    //Get All Schedule
     public function getAllSchedules () {
         $allSchedules = timeschedule::all();
         return response()->json(['allSchedules'=>$allSchedules], 200);
     }
 
+
+    //Add a Schedule
     public function addSchedule (Request $request) {
         $timeschedule = new timeschedule();
 
@@ -27,12 +29,15 @@ class TimescheduleController extends Controller
         $timeschedule->day = $request->input('day');
         $timeschedule->tid = $request->input('tid');
         $timeschedule->sid = $request->input('sid');
-        $timeschedule->cid = $request->input('cid');
+        $timeschedule->classid = $request->input('cid');
 
         $timeschedule->save();
         return response()->json(['return'=>$timeschedule, 'response'=>true], 201);
     }
 
+
+
+    //Delete a Schedule
     public function deleteSchedule ($id) {
         $timeschedule = timeschedule::find($id);
 
@@ -47,6 +52,9 @@ class TimescheduleController extends Controller
         ]);
     }
 
+
+
+    //Edit a Schedule
     public function editSchedule (Request $request, $id) {
         $timeschedule = timeschedule::find($id);
         if(!$timeschedule) {
@@ -63,19 +71,56 @@ class TimescheduleController extends Controller
         $timeschedule->day = $request->input('day');
         $timeschedule->tid = $request->input('tid');
         $timeschedule->sid = $request->input('sid');
-        $timeschedule->cid = $request->input('cid');
+        $timeschedule->classid = $request->input('cid');
 
         $timeschedule->save();
         return response()->json(['return'=>$timeschedule, 'response'=>true], 200);
     }
+   
 
 
-    public function getRelatedAll () {
+    //Find a Timeschedule
+    public function findSchedule ($id) {
+        $timeschedule = timeschedule::find($id);
+        $response = [
+            'timeschedule'=>$timeschedule
+        ];
+        return response()->json($response,200);
+    }
+
+
+
+    //Update a Classroom
+    public function putTimeSchedule(Request $request, $id){ 
+        $timeschedule = timeschedule::find($id);
+
+        if(!$timeschedule){
+            return response()->json(['msg'=>"Timeschedule not found"],404);
+        }
+
+        $timeschedule->type = $request->input('type');
+        $timeschedule->spdate = $request->input('spdate');
+        $timeschedule->from = $request->input('from');
+        $timeschedule->to = $request->input('to');
+        $timeschedule->review = $request->input('review');
+        $timeschedule->day = $request->input('day');
+        $timeschedule->tid = $request->input('tid');
+        $timeschedule->sid = $request->input('sid');
+        $timeschedule->classid = $request->input('cid');
+
+        $timeschedule->save();
+        return response()->json(['return'=>$timeschedule, 'response'=>true], 200);
+   }
+
+
+
+
+     //Joined Tables related to TimeSchedules
+     public function getRelatedAll () {
         return response()->json(['allSchedules'=>(
             DB::table('timeschedules')
             ->join('teachers', 'teachers.id', 'timeschedules.tid')
             ->join('subjects', 'subjects.id', 'timeschedules.sid')
             ->get())] , 200);
-        
     }
 }

@@ -27,12 +27,13 @@
 <small>[ Confidential ] - Auto genarated report by SEIMS</small>
     <br/>
     <div style="display:flex; margin-top:20px;">
-        <!-- <img src="/images/logo.png" style="width:80px; height: 80px" alt="logo"/> -->
-        <div style="">
+        <!-- /images/logo.png -->
+        <img src="https://cdn.logo.com/hotlink-ok/logo-social-sq.png" style="width:80px; height: 80px" alt="logo"/>
+        <div style="margin-left: 100px;">
             <p>Shilpa Educational Institute<br/>Mahiyanganaya</p>
         </div>
     </div>
-    <h3 style="margin-bottom:10px;">Time Scheduling Report</h3>
+    <h3 style="margin-bottom:10px;">Classrooms Report</h3>
 
     <table id="cr">
         <thead>
@@ -47,7 +48,7 @@
         </thead>
         
         <tbody>
-            <?php $count = 0; ?>
+            <?php $count = 0; $area = 0; ?>
             @foreach($classrooms as $classroom)
             <tr>
                 <td>{{$classroom['cid']}}</td>
@@ -57,11 +58,14 @@
                 <td>{{$classroom['width'] * $classroom['length']}}'</td>
                 <td>{{$classroom['resources']}}</td>
             </tr>
-            <?php $count = $count+1; ?>
+            <?php $count = $count+1;
+            $area = $area + ($classroom['width'] * $classroom['length']) ?>
             @endforeach
             <tr>
                 <th>Total Classrooms</th>
                 <td>{{$count}}</td>
+                <th>Total Area</th>
+                <td>{{$area}}'</td>
             </tr>
         </tbody>
     </table>

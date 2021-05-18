@@ -31,25 +31,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // DINETH ============================
 // --> Classroom
 Route::get('classrooms/getall', [ClassroomController::class, 'getAllClassrooms']); //ClassroomController.getAllClassrooms()
+Route::get('classrooms/get/{id}', [ClassroomController::class, 'findClassroom']);
 Route::post('addclassroom',[ClassroomController::class, 'postClassroom']);
 Route::delete('deleteclassroom/{id}', [ClassroomController::class, 'deleteClassroom']);
-Route::put('putclassroom/{classroom}', [ClassroomController::class, 'putClassroom']);
+Route::put('classroom/edit/{id}', [ClassroomController::class, 'putClassroom']);
 
 // --> Time Scheduling
 Route::get('timeschedule/getall', [TimescheduleController::class, 'getAllSchedules']);
+Route::get('timeschedule/get/{id}', [TimescheduleController::class, 'findSchedule']);
 Route::post('timeschedule/add', [TimescheduleController::class, 'addSchedule']);
 Route::delete('timeschedule/delete/{id}', [TimescheduleController::class, 'deleteSchedule']);
-Route::put('timeschedule/edit/{id}', [TimescheduleController::class, 'editSchedule']);
+Route::put('timeschedule/edit/{id}', [TimescheduleController::class, 'putTimeSchedule']);
 Route::get('timeschedule/relget', [TimescheduleController::class, 'getRelatedAll']);
 
 // --> Report
 Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']); //PDF Report
 Route::get('/timeandclass/show-report', [ClassroomController::class, 'showReport']); //HTML Report
-Route::get('/timeandclass/report', function() {
-    PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-    $pdf = PDF::loadView('report');
-    return $pdf->download('report.pdf');
-});
 
 
 //Thisara======================
