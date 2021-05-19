@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\SubjectMainController;
+use App\Http\Controllers\StudentsubjectsController;
 
 
 
@@ -65,6 +66,11 @@ Route::put('student/update/{id}', [StudentsController::class, 'editStudent']); /
 Route::get('subjetmainget', [SubjectMainController::class, 'getAllSubjectMain']);  //getAllSubjectMain = Controller Methord
 Route::post('subject/add',[SubjectMainController::class, 'addSubject']); //Add subject
 Route::delete('subject/delete/{id}', [SubjectMainController::class, 'deleteSubject']);
+
+// --> StudentSubjectMain
+Route::get('studenntsubjetmainget', [StudentsubjectsController::class, 'getAllStudentSubjectMain']);  //getAllSubjectMain = Controller Methord
+Route::post('studenntsubject/add',[StudentsubjectsController::class, 'addStudentSubject']); //Add subject
+Route::delete('studenntsubject/delete/{id}', [StudentsubjectsController::class, 'deleteStudnetSubject']);
 
 
 // --> Small Expenses
