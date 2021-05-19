@@ -32,6 +32,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
+// Sadani ============================
+Route::get('teacher/getallteacher', [TeachersController::class, 'getAllTeacher']);
+Route::post('teacher/addteacher',[TeachersController::class, 'addTeacher']);
+Route::delete('teacher/delete/{id}', [TeachersController::class, 'deleteTeacher']);
+Route::get('teacher/geteditteacher/{id}', [TeachersController::class, 'getEditTeacher']);
+
 // DINETH ============================
 // --> Classroom
 Route::get('classrooms/getall', [ClassroomController::class, 'getAllClassrooms']); //ClassroomController.getAllClassrooms()
