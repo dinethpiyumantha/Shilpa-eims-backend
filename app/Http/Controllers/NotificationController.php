@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Notification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use \PDF;
 
 class NotificationController extends Controller
 {
@@ -81,6 +82,20 @@ class NotificationController extends Controller
         $notice-> postBy = $request->input('postBy');
         $notice->save();
         return response()->json(['mag'=>"Item not found"],404);
+    }
+
+    //Report
+    public function showReport () {
+        $notification = Notification::all();
+        $pdf = PDF::loadView('notification', ['notification' => $notification]);
+        return $pdf->download('report.pdf');
+    }
+
+
+    public function downloadPDF () {
+        $notification = Notification::all();
+        $pdf = PDF::loadView('notification', ['notification' => $notification]);
+        return $pdf->download('report.pdf');
     }
 
 }

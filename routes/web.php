@@ -18,4 +18,18 @@ Route::get('/', function () {
 });
 
 
-// Report
+
+
+
+
+
+
+
+
+
+// Report thisara
+Route::get('/notification', function () {
+    $pdf = PDF::loadView('notification');
+    return $pdf->download('notification.pdf');
+});
+
