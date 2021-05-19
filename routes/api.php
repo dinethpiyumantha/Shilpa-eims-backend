@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\SubjectMainController;
@@ -13,7 +14,6 @@ use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
-use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\TeachersController;
 
 /*
@@ -55,9 +55,23 @@ Route::put('timeschedule/edit/{id}', [TimescheduleController::class, 'putTimeSch
 Route::get('timeschedule/relget', [TimescheduleController::class, 'getRelatedAll']);
 
 // --> Report
+
+
 Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']); //PDF Report
 Route::get('/timeandclass/show-report', [ClassroomController::class, 'showReport']); //HTML Report
 
+// -- sadeesha
+Route::get('/attendance/repattendanceReport-pdf', [AttendanceController::class, 'PDFdownload']);//attendance report eka
+Route::get('/attendance/attendanceReport', function() {
+    PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+    $pdf = PDF::loadView('attendanceReport');
+    return $pdf->download('attendanceReport.pdf');
+});
+Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
+Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
+Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
+Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
+Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
 
 //Thisara======================
 // --> Notification management
