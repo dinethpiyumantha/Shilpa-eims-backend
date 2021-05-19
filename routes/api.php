@@ -78,6 +78,8 @@ Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttend
 Route::post('addNotice',[NotificationController::class, 'postNotice']);
 Route::get('allNotice',[NotificationController::class, 'getNotice']);
 Route::delete('deleteNotice/{id}', [NotificationController::class, 'deleteNotice']);
+Route::put('editNotice/{id}', [NotificationController::class, 'editNotice']);
+Route::get('/notification/show-report', [NotificationController::class, 'showReport']);
 
 
 // LAKSHAN ============================

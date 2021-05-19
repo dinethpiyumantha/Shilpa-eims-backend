@@ -18,8 +18,26 @@ Route::get('/', function () {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+// Report thisara
+Route::get('/notification', function () {
+    $pdf = PDF::loadView('notification');
+    return $pdf->download('notification.pdf');
+});
+
+
 // Report
 Route::get('teacher_report', function () {
     $pdf = PDF::loadView('teacher');
     return $pdf->download('teacher.pdf');
 });
+
