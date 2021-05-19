@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\SubjectMainController;
+
+
+
 use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
@@ -61,6 +65,14 @@ Route::delete('deleteNotice/{id}', [NotificationController::class, 'deleteNotice
 Route::get('getallstudents', [StudentsController::class, 'getAllStudents']);
 Route::post('students/add',[StudentsController::class, 'addStudent']);
 Route::delete('student/delete/{id}', [StudentsController::class, 'deleteStudent']);
+Route::get('students/edit/{id}', [StudentsController::class, 'getStudentsDetails']); //for update page
+Route::put('student/update/{id}', [StudentsController::class, 'editStudent']); //edit student
+
+
+// --> SubjectMain
+Route::get('subjetmainget', [SubjectMainController::class, 'getAllSubjectMain']);  //getAllSubjectMain = Controller Methord
+Route::post('subject/add',[SubjectMainController::class, 'addSubject']); //Add subject
+Route::delete('subject/delete/{id}', [SubjectMainController::class, 'deleteSubject']);
 
 
 // DEEN ============================
