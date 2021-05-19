@@ -58,6 +58,7 @@ Route::get('getallstudents', [StudentsController::class, 'getAllStudents']);
 Route::post('students/add',[StudentsController::class, 'addStudent']);
 Route::delete('student/delete/{id}', [StudentsController::class, 'deleteStudent']);
 Route::get('students/edit/{id}', [StudentsController::class, 'getStudentsDetails']); //for update page
+Route::put('student/update/{id}', [StudentsController::class, 'editStudent']); //edit student
 
 
 // --> SubjectMain
