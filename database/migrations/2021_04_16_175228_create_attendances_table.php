@@ -14,10 +14,10 @@ class CreateAttendancesTable extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             $table->text('Userid');
             $table->text('name');
-            $table->text('Phone');
+            $table->text('subject');
             $table->dateTime('In');
             $table->dateTime('Out');
             $table->text('Discreption');

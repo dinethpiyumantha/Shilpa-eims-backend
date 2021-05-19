@@ -41,6 +41,8 @@ Route::delete('timeschedule/delete/{id}', [TimescheduleController::class, 'delet
 Route::put('timeschedule/edit/{id}', [TimescheduleController::class, 'editSchedule']);
 
 // --> Report
+
+
 Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']); //PDF Report
 Route::get('/timeandclass/show-report', [ClassroomController::class, 'showReport']); //HTML Report
 Route::get('/timeandclass/report', function() {
@@ -50,7 +52,12 @@ Route::get('/timeandclass/report', function() {
 });
 
 // -- sadeesha
-
+Route::get('/attendance/repattendanceReport-pdf', [AttendanceController::class, 'PDFdownload']);//attendance report eka
+Route::get('/attendance/attendanceReport', function() {
+    PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+    $pdf = PDF::loadView('attendanceReport');
+    return $pdf->download('attendanceReport.pdf');
+});
 Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
 Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
 Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);

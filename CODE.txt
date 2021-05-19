@@ -1,20 +1,28 @@
-<?php
+Migration
+===================================================
+Schema::create('attendances', function (Blueprint $table) {
+            $table->id();
+            $table->text('Userid');
+            $table->text('name');
+            $table->text('Phone');
+            $table->dateTime('In');
+            $table->dateTime('Out');
+            $table->text('Discreption');
+            $table->timestamps();
+          
+        });
 
-namespace App\Http\Controllers;
-use App\Models\attendance;
-use Illuminate\Http\Request;
-use \PDF;
 
-class AttendanceController extends Controller
-{
-    public function postAddAttendance(Request $request){
+
+Controller
+===========================================================
+public function postAddAttendance(Request $request){
 
         $Attendance = new attendance();
         date_default_timezone_set("Asia/Colombo");
-        $Attendance->id =$request->input('id');
         $Attendance->Userid = $request->input('Userid');
         $Attendance->name = $request->input('name');
-        $Attendance->subject = $request->input('subject');
+        $Attendance->Phone = $request->input('Phone');
         $Attendance->In = date("Y-m-d H:i:s"); 
         $Attendance->Out = date("Y-m-d H:i:s"); 
         $Attendance->Discreption = $request->input('Discreption');
@@ -66,7 +74,7 @@ class AttendanceController extends Controller
         date_default_timezone_set("Asia/Colombo");
         $Attendance->Userid = $request->input('Userid');
         $Attendance->name = $request->input('name');
-        $Attendance->subject = $request->input('subject');
+        $Attendance->Phone = $request->input('Phone');
         $Attendance->In = date("Y-m-d H:i:s"); 
         $Attendance->Out = date("Y-m-d H:i:s"); 
         $Attendance->Discreption = $request->input('Discreption');
@@ -76,17 +84,17 @@ class AttendanceController extends Controller
 
    }
 
-//Report
-// public function showReport () {
-//     $data = attendance::all();
-//     return view('report', ['attendances' => $data]);
-// }
-
-public function PDFdownload () {
-    $Attendance = attendance::all();
-    $pdf = PDF::loadView('attendanceReport', ['attendances' => $Attendance]);
-    return $pdf->download('attendanceReport.pdf');
-}
 
 
-}
+
+
+
+API
+============================================================
+// -- sadeesha
+
+Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
+Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
+Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
+Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
+Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
