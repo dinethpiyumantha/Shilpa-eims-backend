@@ -114,7 +114,6 @@ class TimescheduleController extends Controller
 
 
 
-
      //Joined Tables related to TimeSchedules
      public function getRelatedAll () {
         return response()->json(['allSchedules'=>(
@@ -123,4 +122,28 @@ class TimescheduleController extends Controller
             ->join('subjects', 'subjects.id', 'timeschedules.sid')
             ->get())] , 200);
     }
+
+
+
+    //Retrive TimeSchedules
+    public function retriveTimeSchedules () {
+        return response()->json(['timeschedules' => (
+            DB::table('timeschedules')
+            ->join('teachers', 'teachers.id', 'timeschedules.tid')
+            ->join('subjects', 'subjects.id', 'timeschedules.sid')
+            ->join('classrooms', 'classrooms.id', 'timeschedules.classid')
+            ->select('timeschedules.id','timeschedules.tid', 'timeschedules.sid', 'timeschedules.classid', 'teachers.nameInitil', 'subjects.name', 'classrooms.cid', 'timeschedules.type', 'timeschedules.spdate', 'timeschedules.day', 'timeschedules.from', 'timeschedules.to')
+            ->get()
+        )], 200);
+    }
+
+
+    public void insertUserDet() {
+        $res = response()->json(['attendance' => (
+            DB::table('attendances')
+            ->where('students.id', '=', 'attendance.Userid')
+            
+        )], 200);
+    }
+
 }

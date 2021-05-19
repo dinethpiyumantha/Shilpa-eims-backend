@@ -53,6 +53,7 @@ Route::post('timeschedule/add', [TimescheduleController::class, 'addSchedule']);
 Route::delete('timeschedule/delete/{id}', [TimescheduleController::class, 'deleteSchedule']);
 Route::put('timeschedule/edit/{id}', [TimescheduleController::class, 'putTimeSchedule']);
 Route::get('timeschedule/relget', [TimescheduleController::class, 'getRelatedAll']);
+Route::get('timeschedule/retrive', [TimescheduleController::class, 'retriveTimeSchedules']);
 
 // --> Report
 Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']); //PDF Report
@@ -113,7 +114,7 @@ Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttend
 
 // SANDANI ============================
 // --> Teachers
-Route::get('teachers/getall', [TeachersController::class, 'getAllTeachers']);
+Route::get('teachers/getall', [TeachersController::class, 'getAllTeacher']);
 Route::post('teachers/add',[TeachersController::class, 'postTeacher']);
 Route::delete('teachers/delete/{id}', [TeachersController::class, 'deleteTeacher']);
 Route::put('teachers/edit/{teacher}', [TeachersController::class, 'putTeacher']);
