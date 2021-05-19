@@ -81,8 +81,6 @@ class StudentsController extends Controller
         if(!$students){
             return response()->json(['msg'=>"Student not found"],404);
         }
- 
-
 
          $students-> nameInitil =$request->input('nameInitil');
          $students-> nameFull =$request->input('nameFull');
