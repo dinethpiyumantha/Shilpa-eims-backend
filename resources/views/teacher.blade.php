@@ -27,45 +27,48 @@
 <small>[ Confidential ] - Auto genarated report by SEIMS</small>
     <br/>
     <div style="display:flex; margin-top:20px;">
-        <!-- /images/logo.png -->
-        <img src="https://cdn.logo.com/hotlink-ok/logo-social-sq.png" style="width:80px; height: 80px" alt="logo"/>
-        <div style="margin-left: 100px;">
+        <!-- <img src="/images/logo.png" style="width:80px; height: 80px" alt="logo"/> -->
+        <div style="">
             <p>Shilpa Educational Institute<br/>Mahiyanganaya</p>
         </div>
     </div>
-    <h3 style="margin-bottom:10px;">Classrooms Report</h3>
+    <h3 style="margin-bottom:10px;">Teacher Report</h3>
 
     <table id="cr">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Capacity</th>
-                <th>width</th>
-                <th>Length</th>
-                <th>Area</th>
-                <th>Resources</th>
+                <th>Name</th>
+                <th>Address Line 1</th>
+                <th>Address Line 2</th>
+                <th>Subject</th>
+                <th>Grade</th>
             </tr>
         </thead>
         
         <tbody>
-            <?php $count = 0; $area = 0; ?>
-            @foreach($classrooms as $classroom)
+           
             <tr>
-                <td>{{$classroom['cid']}}</td>
-                <td>{{$classroom['capacity']}}</td>
-                <td>{{$classroom['width']}}'</td>
-                <td>{{$classroom['length']}}'</td>
-                <td>{{$classroom['width'] * $classroom['length']}}'</td>
-                <td>{{$classroom['resources']}}</td>
+                <td>1</td>
+                <td>Sandani Samarasekara</td>
+                <td>366H</td>
+                <td>Meepe</td>
+                <td>Science</td>
+                <td>11</td>
             </tr>
-            <?php $count = $count+1;
-            $area = $area + ($classroom['width'] * $classroom['length']) ?>
-            @endforeach
+
             <tr>
-                <th>Total Classrooms</th>
-                <td>{{$count}}</td>
-                <th>Total Area</th>
-                <td>{{$area}}'</td>
+                <td>2</td>
+                <td>Prasad Liyanage</td>
+                <td>45/B</td>
+                <td>Padukka</td>
+                <td>Econ</td>
+                <td>13</td>
+            </tr>
+            
+            <tr>
+                <th>Total Teachers</th>
+                <td>2</td>
             </tr>
         </tbody>
     </table>

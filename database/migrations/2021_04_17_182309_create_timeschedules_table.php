@@ -23,7 +23,7 @@ class CreateTimeschedulesTable extends Migration
             $table->text('day');                    //Day
             $table->text('tid');                    //Teacher
             $table->text('sid');                    //Subject
-            $table->text('cid');                    //Classroom
+            $table->text('classid');                //Classroom
             $table->timestamps();
         });
     }
