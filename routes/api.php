@@ -61,5 +61,5 @@ Route::get('employees/report-pdfEmp', [EmployeesController::class, 'downloadPDFe
 Route::get('employees/show-reportEmp', [EmployeesController::class, 'showReportEmp']); //HTML Report
 
 
-});
+
 
