@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\TeachersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,12 @@ use App\Http\Controllers\ItemsController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//sadani
+Route::get('teacher/getallteacher', [TeachersController::class, 'getAllTeacher']);
+Route::post('teacher/addteacher',[TeachersController::class, 'addTeacher']);
+Route::delete('teacher/delete/{id}', [TeachersController::class, 'deleteTeacher']);
+Route::get('teacher/geteditteacher/{id}', [TeachersController::class, 'getEditTeacher']);
 
 // DINETH ============================
 // --> Classroom

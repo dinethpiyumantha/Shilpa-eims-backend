@@ -19,3 +19,7 @@ Route::get('/', function () {
 
 
 // Report
+Route::get('teacher_report', function () {
+    $pdf = PDF::loadView('teacher');
+    return $pdf->download('teacher.pdf');
+});
