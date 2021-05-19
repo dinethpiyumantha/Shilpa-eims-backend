@@ -38,11 +38,16 @@ Route::get('/timeandclass/report', function() {
 
 
 // ASANKA ============================
-// --> Employee
-
+// --------------> Employee
 Route::get('employees/getall',[EmployeesController::class,'getAllEmployees']); //get databse details
 Route::post('employees/add',[EmployeesController::class,'addEmloyee']); //insert data
-Route::get('employees/getItem',[EmployeesController::class,'getItems']); //get databse details
 Route::delete('employees/delete/{id}', [EmployeesController::class, 'deleteEmployee']);
+Route::get('employees/getItem/{id}',[EmployeesController::class,'getEmpDetails']); //get databse details for edit page
+Route::put('employees/editItem/{id}',[EmployeesController::class,'editEmpDetails']); //update details for edit page
+
+// --> Report
+Route::get('employees/report-pdfEmp', [EmployeesController::class, 'downloadPDFemp']); //PDF Report
+Route::get('employees/show-reportEmp', [EmployeesController::class, 'showReportEmp']); //HTML Report
+
 
 
