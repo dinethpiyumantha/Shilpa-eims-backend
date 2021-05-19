@@ -20,7 +20,6 @@ class AttendanceController extends Controller
         $Attendance->Discreption = $request->input('Discreption');
 
         $Attendance->save();
-
         return response()->json(['message'=>$Attendance],201);
     }
 
