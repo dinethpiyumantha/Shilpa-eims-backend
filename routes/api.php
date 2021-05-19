@@ -60,6 +60,14 @@ Route::post('students/add',[StudentsController::class, 'addStudent']);
 Route::delete('student/delete/{id}', [StudentsController::class, 'deleteStudent']);
 Route::get('students/edit/{id}', [StudentsController::class, 'getStudentsDetails']); //for update page
 Route::put('student/update/{id}', [StudentsController::class, 'editStudent']); //edit student
+// --> Report
+Route::get('/student/report-pdf', [StudentsController::class, 'downloadStudentPDF']); //PDF Report
+Route::get('/student/show-report', [StudentsController::class, 'showStudentReport']); //HTML Report
+Route::get('/student/report', function() {
+    PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+    $pdf = PDF::loadView('report');
+    return $pdf->download('report.pdf');
+});
 
 
 // --> SubjectMain
