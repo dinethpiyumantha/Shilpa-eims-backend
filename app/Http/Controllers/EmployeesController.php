@@ -105,22 +105,22 @@ class EmployeesController extends Controller
 
          $employees->save();
          return response()->json(['return'=>$employees, 'response'=>true], 201);
-     
     }
 
-    //Report
-    
-    public function showReportEmp () {
-    $data = employees::all();
-    return view('EmpReport', ['employees' => $data]);
-    }
+
+
+    // //Report
+    // public function showReportEmp () {
+    //     $data = employees::all();
+    //     return view('EmpReport', ['employees' => $data]);
+    // }
     
     
     
     public function downloadPDFemp () {
-    $employees = employees::all();
-    $pdf = PDF::loadView('EmpReport', ['employees' => $employees]);
-    return $pdf->download('report.pdf');
+        $employees = employees::all();
+        $pdf = PDF::loadView('EmpReport', ['employees' => $employees]);
+        return $pdf->download('report.pdf');
     }
 
 

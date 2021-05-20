@@ -116,7 +116,7 @@ Route::put('employees/editItem/{id}',[EmployeesController::class,'editEmpDetails
 
 // --> Report
 Route::get('employees/report-pdfEmp', [EmployeesController::class, 'downloadPDFemp']); //PDF Report
-Route::get('employees/show-reportEmp', [EmployeesController::class, 'showReportEmp']); //HTML Report
+// Route::get('employees/show-reportEmp', [EmployeesController::class, 'showReportEmp']); //HTML Report
 
 
 
