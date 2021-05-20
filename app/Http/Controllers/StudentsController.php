@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Students;
 use Illuminate\Http\Request;
+use \PDF;
 
 class StudentsController extends Controller
 {
@@ -102,6 +103,14 @@ class StudentsController extends Controller
 
         $students->save();
         return response()->json(['return'=>$students, 'response'=>true], 200);
+   }
+
+   public function downloadStudentPDF(){
+    $student = Students::all();
+
+    $pdf = PDF::loadView('studentreport', ['student' => $student]);
+    return $pdf->download('report.pdf');
+
    }
 
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\SubjectMainController;
+use App\Http\Controllers\StudentsubjectsController;
 
 
 
@@ -91,12 +92,25 @@ Route::post('students/add',[StudentsController::class, 'addStudent']);
 Route::delete('student/delete/{id}', [StudentsController::class, 'deleteStudent']);
 Route::get('students/edit/{id}', [StudentsController::class, 'getStudentsDetails']); //for update page
 Route::put('student/update/{id}', [StudentsController::class, 'editStudent']); //edit student
+// --> Report
+Route::get('/student/report-pdf', [StudentsController::class, 'downloadStudentPDF']); //PDF Report
+Route::get('/student/show-report', [StudentsController::class, 'showStudentReport']); //HTML Report
+Route::get('/student/report', function() {
+    PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+    $pdf = PDF::loadView('report');
+    return $pdf->download('report.pdf');
+});
 
 
 // --> SubjectMain
 Route::get('subjetmainget', [SubjectMainController::class, 'getAllSubjectMain']);  //getAllSubjectMain = Controller Methord
 Route::post('subject/add',[SubjectMainController::class, 'addSubject']); //Add subject
 Route::delete('subject/delete/{id}', [SubjectMainController::class, 'deleteSubject']);
+
+// --> StudentSubjectMain
+Route::get('studenntsubjetmainget', [StudentsubjectsController::class, 'getAllStudentSubjectMain']);  //getAllSubjectMain = Controller Methord
+Route::post('studenntsubject/add',[StudentsubjectsController::class, 'addStudentSubject']); //Add subject
+Route::delete('studenntsubject/delete/{id}', [StudentsubjectsController::class, 'deleteStudnetSubject']);
 
 
 // DEEN ============================
