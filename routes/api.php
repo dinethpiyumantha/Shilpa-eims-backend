@@ -15,6 +15,7 @@ use App\Http\Controllers\ExpensesController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\examsController;
 use App\Http\Controllers\TeachersController;
 
 /*
@@ -32,6 +33,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+//pawan =======
+//-->Examination
+// PAWAN ============================
+// // --> Exam
+// Route::get('Exam/getresult', [ClassroomController::class, 'getAllresults']);
+
+// Route::get('Examination/getall', [ExaminationController::class, 'getAll']);
+// Route::post('/addexam',['uses'=>'examsController@postexam']);
+Route::post('addexam/getexamdata',[examsController::class, 'indetExamData']);
+Route::get('examgetall/getall', [examsController::class, 'getAllExams']);
+Route::delete('deleteexams/{id}', [examsController::class, 'deleteexamination']);
+Route::get('examgetallEdit/getallEdit/{id}', [examsController::class, 'getExamDetails']); //edit page
+Route::put('examUpdate/updateExam/{id}', [examsController::class, 'editExamData']);
+Route::get('examReport/report-pdf', [examsController::class, 'examdownloadPDF']); //PDF Report
 
 // Sadani ============================
 Route::get('teacher/getallteacher', [TeachersController::class, 'getAllTeacher']);
@@ -57,10 +73,9 @@ Route::get('timeschedule/relget', [TimescheduleController::class, 'getRelatedAll
 Route::get('timeschedule/retrive', [TimescheduleController::class, 'retriveTimeSchedules']);
 
 // --> Report
-
-
 Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF']); //PDF Report
 Route::get('/timeandclass/show-report', [ClassroomController::class, 'showReport']); //HTML Report
+
 
 // -- sadeesha
 Route::get('/attendance/repattendanceReport-pdf', [AttendanceController::class, 'PDFdownload']);//attendance report eka
@@ -102,6 +117,7 @@ Route::get('/student/report', function() {
 });
 
 
+
 // --> SubjectMain
 Route::get('subjetmainget', [SubjectMainController::class, 'getAllSubjectMain']);  //getAllSubjectMain = Controller Methord
 Route::post('subject/add',[SubjectMainController::class, 'addSubject']); //Add subject
@@ -130,22 +146,5 @@ Route::put('employees/editItem/{id}',[EmployeesController::class,'editEmpDetails
 
 // --> Report
 Route::get('employees/report-pdfEmp', [EmployeesController::class, 'downloadPDFemp']); //PDF Report
-// Route::get('employees/show-reportEmp', [EmployeesController::class, 'showReportEmp']); //HTML Report
+Route::get('employees/show-reportEmp', [EmployeesController::class, 'showReportEmp']); //HTML Report
 
-
-
-
-// SADISHA ============================
-// --> Attendance
-// Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
-// Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
-// Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
-// Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
-// Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
-
-// SANDANI ============================
-// --> Teachers
-Route::get('teachers/getall', [TeachersController::class, 'getAllTeacher']);
-Route::post('teachers/add',[TeachersController::class, 'postTeacher']);
-Route::delete('teachers/delete/{id}', [TeachersController::class, 'deleteTeacher']);
-Route::put('teachers/edit/{teacher}', [TeachersController::class, 'putTeacher']);
