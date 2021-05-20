@@ -1,0 +1,100 @@
+Migration
+===================================================
+Schema::create('attendances', function (Blueprint $table) {
+            $table->id();
+            $table->text('Userid');
+            $table->text('name');
+            $table->text('Phone');
+            $table->dateTime('In');
+            $table->dateTime('Out');
+            $table->text('Discreption');
+            $table->timestamps();
+          
+        });
+
+
+
+Controller
+===========================================================
+public function postAddAttendance(Request $request){
+
+        $Attendance = new attendance();
+        date_default_timezone_set("Asia/Colombo");
+        $Attendance->Userid = $request->input('Userid');
+        $Attendance->name = $request->input('name');
+        $Attendance->Phone = $request->input('Phone');
+        $Attendance->In = date("Y-m-d H:i:s"); 
+        $Attendance->Out = date("Y-m-d H:i:s"); 
+        $Attendance->Discreption = $request->input('Discreption');
+
+        $Attendance->save();
+
+        return response()->json(['message'=>$Attendance],201);
+    }
+
+
+
+    public function getAlldata () {
+        $allData = attendance::all();
+        return response()->json(['allData'=>$allData], 200);
+    }
+
+
+    public function getAlldataupdate ($id) {
+        $updateA = attendance::find($id);
+        $response=['updateA'=>$updateA];
+        return response()->json($response, 200);
+    }
+
+   
+
+
+    public function deleteAttendance($id)
+{
+    $att= attendance::find($id);
+
+    if(!$att){
+        return response()->json(['msg'=>"Attendance not found"],404);
+    }
+
+    $att->delete();
+    return response()->json(['msg'=>"Attendance deleted"],201);
+    
+    
+}
+
+   public function updateAttendance(Request $request,$id){
+
+    $Attendance= attendance::find($id);
+
+    if(!$Attendance){
+                 return response()->json(['msg'=>"Attendance not found"],404);
+             }
+
+        date_default_timezone_set("Asia/Colombo");
+        $Attendance->Userid = $request->input('Userid');
+        $Attendance->name = $request->input('name');
+        $Attendance->Phone = $request->input('Phone');
+        $Attendance->In = date("Y-m-d H:i:s"); 
+        $Attendance->Out = date("Y-m-d H:i:s"); 
+        $Attendance->Discreption = $request->input('Discreption');
+
+        $Attendance->save();
+        return response()->json(['msg'=>$Attendance],201);
+
+   }
+
+
+
+
+
+
+API
+============================================================
+// -- sadeesha
+
+Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
+Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
+Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
+Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
+Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
