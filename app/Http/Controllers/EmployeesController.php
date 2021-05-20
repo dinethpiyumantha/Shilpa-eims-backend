@@ -109,11 +109,11 @@ class EmployeesController extends Controller
 
 
 
-    //Report
-    public function showReportEmp () {
-        $data = employees::all();
-        return view('EmpReport', ['employees' => $data]);
-    }
+    // //Report
+    // public function showReportEmp () {
+    //     $data = employees::all();
+    //     return view('EmpReport', ['employees' => $data]);
+    // }
     
     
     

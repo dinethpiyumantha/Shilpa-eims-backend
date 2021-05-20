@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,53 +34,38 @@
             <p>Shilpa Educational Institute<br/>Mahiyanganaya</p>
         </div>
     </div>
-    <h3 style="margin-bottom:10px;">Financial Report</h3>
+
+
+    <h3 style="margin-bottom:10px;">Emloyee Report</h3>
 
     <table id="cr">
-        <caption> 2021/04/01 - 2021/04/30 </caption>
         <thead>
             <tr>
-                <th>name with Initial</th>
-                <th>address</th>
-                <th>city</th>
-                <th>date</th>
-                <th>email</th>
-                <th>nic</th>
+                <th>Name with initial</th>
+                <th>Full name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>NIC</th>
             </tr>
         </thead>
         
         <tbody>
+            <?php $count = 0; ?>
+            @foreach($employees as $employees)
             <tr>
-                <td>J.L.M.A.A Gamage</td>
-                <td>No 127/2 samagi mawatha kandy</td>
-                <td>kandy</td>
-                <td>20021/05/18</td>
-                <td>asankafafha@gmail.com</td>
-                <td>234234235v</td>
+                <td>{{$employees['nameInitial']}}</td>
+                <td>{{$employees['fullName']}}</td>
+                <td>{{$employees['address1']}}'</td>
+                <td>{{$employees['city']}}'</td>
+                <td>{{$employees['email']}}'</td>
+                <td>{{$employees['nic']}}</td>
             </tr>
+            <?php $count = $count+1; ?>
+            @endforeach
             <tr>
-                <td>T.R Deen</td>
-                <td>No 12/2 sumudu mawatha malabe</td>
-                <td>malabe</td>
-                <td>20021/05/18</td>
-                <td>deentuan@gmail.com</td>
-                <td>234453235v</td>
-            </tr>
-            <tr>
-                <td> A.A jayainghe</td>
-                <td>No 1/2 diyatha road koswaththa</td>
-                <td>kotte</td>
-                <td>20021/05/18</td>
-                <td>pawandgh@gmail.com</td>
-                <td>246436435v</td>
-            </tr>
-            <tr>
-                <td>J. A.A babaranda</td>
-                <td>No 23 malpara road rathnapura</td>
-                <td>rathnapura</td>
-                <td>20021/05/18</td>
-                <td>adeesha@gmail.com</td>
-                <td>23dfdf235v</td>
+                <th>Total Emlployees</th>
+                <td>{{$count}}</td>
             </tr>
         </tbody>
     </table>
