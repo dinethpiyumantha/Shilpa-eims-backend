@@ -138,12 +138,9 @@ class TimescheduleController extends Controller
     }
 
 
-    public void insertUserDet() {
-        $res = response()->json(['attendance' => (
-            DB::table('attendances')
-            ->where('students.id', '=', 'attendance.Userid')
-            
-        )], 200);
-    }
+
+    
+
+
 
 }

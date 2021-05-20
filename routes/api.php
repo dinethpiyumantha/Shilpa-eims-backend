@@ -74,6 +74,7 @@ Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldat
 Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
 Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
 
+
 //Thisara======================
 // --> Notification management
 Route::post('addNotice',[NotificationController::class, 'postNotice']);
@@ -120,11 +121,11 @@ Route::get('employees/show-reportEmp', [EmployeesController::class, 'showReportE
 
 // SADISHA ============================
 // --> Attendance
-Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
-Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
-Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
-Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
-Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
+// Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
+// Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
+// Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
+// Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
+// Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
 
 // SANDANI ============================
 // --> Teachers
