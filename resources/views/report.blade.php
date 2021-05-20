@@ -27,13 +27,17 @@
 <small>[ Confidential ] - Auto genarated report by SEIMS</small>
     <br/>
     <div style="display:flex; margin-top:20px;">
-        <!-- /images/logo.png -->
         <img src="https://cdn.logo.com/hotlink-ok/logo-social-sq.png" style="width:80px; height: 80px" alt="logo"/>
         <div style="margin-left: 100px;">
             <p>Shilpa Educational Institute<br/>Mahiyanganaya</p>
         </div>
     </div>
-    <h3 style="margin-bottom:10px;">Classrooms Report</h3>
+    <br/>
+
+    <div>
+        <p style="margin-top: -70px; font-size: 25px;">Classrooms Report</p>
+    </div>
+    
 
     <table id="cr">
         <thead>

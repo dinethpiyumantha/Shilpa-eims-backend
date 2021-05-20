@@ -17,7 +17,7 @@ class AttendanceController extends Controller
         $Attendance->subject = $request->input('subject');
         $Attendance->In = date("Y-m-d H:i:s"); 
         $Attendance->Out = date("Y-m-d H:i:s"); 
-        $Attendance->Discreption = $request->input('Discreption');
+        $Attendance->Discreption = $request->input('Discription');
 
         $Attendance->save();
         return response()->json(['message'=>$Attendance],201);
@@ -86,6 +86,7 @@ public function PDFdownload () {
     $pdf = PDF::loadView('attendanceReport', ['attendances' => $Attendance]);
     return $pdf->download('attendanceReport.pdf');
 }
+
 
 
 }

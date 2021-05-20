@@ -53,6 +53,7 @@ Route::post('timeschedule/add', [TimescheduleController::class, 'addSchedule']);
 Route::delete('timeschedule/delete/{id}', [TimescheduleController::class, 'deleteSchedule']);
 Route::put('timeschedule/edit/{id}', [TimescheduleController::class, 'putTimeSchedule']);
 Route::get('timeschedule/relget', [TimescheduleController::class, 'getRelatedAll']);
+Route::get('timeschedule/retrive', [TimescheduleController::class, 'retriveTimeSchedules']);
 
 // --> Report
 
@@ -72,6 +73,7 @@ Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
 Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
 Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
 Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
+
 
 //Thisara======================
 // --> Notification management
@@ -121,15 +123,15 @@ Route::get('employees/show-reportEmp', [EmployeesController::class, 'showReportE
 
 // SADISHA ============================
 // --> Attendance
-Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
-Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
-Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
-Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
-Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
+// Route::post('attendance/add',[AttendanceController::class,'postAddAttendance']);
+// Route::get('attendance/getall', [AttendanceController::class, 'getAlldata']);
+// Route::get('getAttendance/update/{id}', [AttendanceController::class, 'getAlldataupdate']);
+// Route::delete('delete/attendance/{id}', [AttendanceController::class, 'deleteAttendance']);
+// Route::put('update/attendance/{id}', [AttendanceController::class, 'updateAttendance']);
 
 // SANDANI ============================
 // --> Teachers
-Route::get('teachers/getall', [TeachersController::class, 'getAllTeachers']);
+Route::get('teachers/getall', [TeachersController::class, 'getAllTeacher']);
 Route::post('teachers/add',[TeachersController::class, 'postTeacher']);
 Route::delete('teachers/delete/{id}', [TeachersController::class, 'deleteTeacher']);
 Route::put('teachers/edit/{teacher}', [TeachersController::class, 'putTeacher']);
