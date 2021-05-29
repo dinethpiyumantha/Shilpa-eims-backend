@@ -12,6 +12,7 @@ use App\Http\Controllers\StudentsubjectsController;
 
 
 use App\Http\Controllers\ExpensesController;
+use App\Http\Controllers\FeesControler;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\TimescheduleController;
 use App\Http\Controllers\ItemsController;
@@ -135,6 +136,13 @@ Route::post('addexpense',[ExpensesController::class, 'postExpense']);
 Route::get('getallexpenses', [ExpensesController::class, 'getAllExpenses']);
 Route::delete('deleteexpense/{id}', [ExpensesController::class, 'deleteExpense']);
 
+// --> Fee Payment
+
+
+Route::post('addfee',[FeesControler::class, 'postFee']);
+Route::get('getallfees', [FeesControler::class, 'getAllFees']);
+Route::delete('deletefee/{id}', [FeesControler::class, 'deleteFee']);
+Route::put('editfee/{id}', [FeesControler::class, 'editFee']);
 
 // ASANKA ============================
 // --> Employee

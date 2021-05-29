@@ -16,8 +16,6 @@ class TimescheduleController extends Controller
         return response()->json(['allSchedules'=>$allSchedules], 200);
     }
 
-
-    //Add a Schedule
     public function addSchedule (Request $request) {
         $timeschedule = new timeschedule();
 
@@ -35,8 +33,6 @@ class TimescheduleController extends Controller
         return response()->json(['return'=>$timeschedule, 'response'=>true], 201);
     }
 
-
-
     //Delete a Schedule
     public function deleteSchedule ($id) {
         $timeschedule = timeschedule::find($id);
@@ -51,8 +47,6 @@ class TimescheduleController extends Controller
             "message"=>"timeschedule Deleted !", 201
         ]);
     }
-
-
 
     //Edit a Schedule
     public function editSchedule (Request $request, $id) {

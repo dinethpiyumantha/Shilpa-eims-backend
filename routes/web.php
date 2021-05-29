@@ -18,7 +18,11 @@ Route::get('/', function () {
 });
 
 
-
+// Report
+Route::get('/financial_report', function () {
+    $pdf = PDF::loadView('financial');
+    return $pdf->download('finance.pdf');
+});
 
 
 

@@ -6,7 +6,6 @@ use App\Models\employees;
 use Illuminate\Http\Request;
 use \PDF;
 
-
 class EmployeesController extends Controller
 {
     public function getAllEmployees(){
@@ -123,10 +122,6 @@ class EmployeesController extends Controller
         return $pdf->download('report.pdf');
     }
 
-
-    
-
-    
 
 }
 
