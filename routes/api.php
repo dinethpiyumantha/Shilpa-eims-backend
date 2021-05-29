@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\ExpensesController;
+use App\Http\Controllers\FeesControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,9 @@ Route::post('addexpense',[ExpensesController::class, 'postExpense']);
 Route::get('getallexpenses', [ExpensesController::class, 'getAllExpenses']);
 Route::delete('deleteexpense/{id}', [ExpensesController::class, 'deleteExpense']);
 
+// --> Fee Payment
 
-
-
+Route::post('addfee',[FeesControler::class, 'postFee']);
+Route::get('getallfees', [FeesControler::class, 'getAllFees']);
+Route::delete('deletefee/{id}', [FeesControler::class, 'deleteFee']);
+Route::put('editfee/{id}', [FeesControler::class, 'editFee']);
