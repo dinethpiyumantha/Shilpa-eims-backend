@@ -27,49 +27,36 @@
 <small>[ Confidential ] - Auto genarated report by SEIMS</small>
     <br/>
     <div style="display:flex; margin-top:20px;">
-        <img src="https://cdn.logo.com/hotlink-ok/logo-social-sq.png" style="width:80px; height: 80px" alt="logo"/>
-        <div style="margin-left: 100px;">
+        <!-- <img src="/images/logo.png" style="width:80px; height: 80px" alt="logo"/> -->
+        <div style="">
             <p>Shilpa Educational Institute<br/>Mahiyanganaya</p>
         </div>
     </div>
-    <br/>
-
-    <div>
-        <p style="margin-top: -70px; font-size: 25px;">Classrooms Report</p>
-    </div>
-    
+    <h3 style="margin-bottom:10px;">Attendance Report</h3>
 
     <table id="cr">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Capacity</th>
-                <th>width</th>
-                <th>Length</th>
-                <th>Area</th>
-                <th>Resources</th>
+                <th>Student Name</th>
+                <th>subject</th>
+                
             </tr>
         </thead>
         
         <tbody>
-            <?php $count = 0; $area = 0; ?>
-            @foreach($classrooms as $classroom)
+            <?php $count = 0; ?>
+            @foreach($attendances as $Attendance)
             <tr>
-                <td>{{$classroom['cid']}}</td>
-                <td>{{$classroom['capacity']}}</td>
-                <td>{{$classroom['width']}}'</td>
-                <td>{{$classroom['length']}}'</td>
-                <td>{{$classroom['width'] * $classroom['length']}}'</td>
-                <td>{{$classroom['resources']}}</td>
-            </tr>
-            <?php $count = $count+1;
-            $area = $area + ($classroom['width'] * $classroom['length']) ?>
+                <td>{{$Attendance['Userid']}}</td>
+                <td>{{$Attendance['name']}}</td>
+                <td>{{$Attendance['subject']}}'</td>
+                
+            <?php $count = $count+1; ?>
             @endforeach
             <tr>
-                <th>Total Classrooms</th>
+                <th>Total attendances</th>
                 <td>{{$count}}</td>
-                <th>Total Area</th>
-                <td>{{$area}}'</td>
             </tr>
         </tbody>
     </table>

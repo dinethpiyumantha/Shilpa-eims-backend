@@ -27,49 +27,41 @@
 <small>[ Confidential ] - Auto genarated report by SEIMS</small>
     <br/>
     <div style="display:flex; margin-top:20px;">
-        <img src="https://cdn.logo.com/hotlink-ok/logo-social-sq.png" style="width:80px; height: 80px" alt="logo"/>
-        <div style="margin-left: 100px;">
+        <!-- <img src="/images/logo.png" style="width:80px; height: 80px" alt="logo"/> -->
+        <div style="">
             <p>Shilpa Educational Institute<br/>Mahiyanganaya</p>
         </div>
     </div>
-    <br/>
-
-    <div>
-        <p style="margin-top: -70px; font-size: 25px;">Classrooms Report</p>
-    </div>
-    
+    <h3 style="margin-bottom:10px;">Time Scheduling Report</h3>
 
     <table id="cr">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Capacity</th>
-                <th>width</th>
-                <th>Length</th>
-                <th>Area</th>
-                <th>Resources</th>
+                <th>Exam Name</th>
+                <th>Exam ID</th>
+                <th>Subject</th>
+                <th>Grade</th>
+                <th>Term</th>
+                <th>Date</th>
             </tr>
         </thead>
         
         <tbody>
-            <?php $count = 0; $area = 0; ?>
-            @foreach($classrooms as $classroom)
+            <?php $count = 0; ?>
+            @foreach($exam as $exam)
             <tr>
-                <td>{{$classroom['cid']}}</td>
-                <td>{{$classroom['capacity']}}</td>
-                <td>{{$classroom['width']}}'</td>
-                <td>{{$classroom['length']}}'</td>
-                <td>{{$classroom['width'] * $classroom['length']}}'</td>
-                <td>{{$classroom['resources']}}</td>
+                <td>{{$exam['examName']}}</td>
+                <td>{{$exam['examId']}}</td>
+                <td>{{$exam['subject']}}'</td>
+                <td>{{$exam['grade']}}'</td>
+                <td>{{$exam['term'] }}'</td>
+                <td>{{$exam['date']}}</td>
             </tr>
-            <?php $count = $count+1;
-            $area = $area + ($classroom['width'] * $classroom['length']) ?>
+            <?php $count = $count+1; ?>
             @endforeach
             <tr>
-                <th>Total Classrooms</th>
+                <th>Total exams</th>
                 <td>{{$count}}</td>
-                <th>Total Area</th>
-                <td>{{$area}}'</td>
             </tr>
         </tbody>
     </table>

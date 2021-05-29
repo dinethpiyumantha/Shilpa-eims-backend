@@ -23,3 +23,25 @@ Route::get('/financial_report', function () {
     $pdf = PDF::loadView('financial');
     return $pdf->download('finance.pdf');
 });
+
+
+
+
+
+
+
+
+
+// Report thisara
+Route::get('/notification', function () {
+    $pdf = PDF::loadView('notification');
+    return $pdf->download('notification.pdf');
+});
+
+
+// Report
+Route::get('teacher_report', function () {
+    $pdf = PDF::loadView('teacher');
+    return $pdf->download('teacher.pdf');
+});
+
