@@ -33,12 +33,9 @@
         </div>
     </div>
     <br/>
-
     <div>
         <p style="margin-top: -70px; font-size: 25px;">Classrooms Report</p>
     </div>
-    
-
     <table id="cr">
         <thead>
             <tr>
@@ -50,7 +47,6 @@
                 <th>Resources</th>
             </tr>
         </thead>
-        
         <tbody>
             <?php $count = 0; $area = 0; ?>
             @foreach($classrooms as $classroom)

@@ -37,12 +37,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //pawan =======
 //-->Examination
-// PAWAN ============================
-// // --> Exam
-// Route::get('Exam/getresult', [ClassroomController::class, 'getAllresults']);
-
-// Route::get('Examination/getall', [ExaminationController::class, 'getAll']);
-// Route::post('/addexam',['uses'=>'examsController@postexam']);
 Route::post('addexam/getexamdata',[examsController::class, 'indetExamData']);
 Route::get('examgetall/getall', [examsController::class, 'getAllExams']);
 Route::delete('deleteexams/{id}', [examsController::class, 'deleteexamination']);
@@ -58,7 +52,7 @@ Route::get('teacher/geteditteacher/{id}', [TeachersController::class, 'getEditTe
 
 // DINETH ============================
 // --> Classroom
-Route::get('classrooms/getall', [ClassroomController::class, 'getAllClassrooms']); //ClassroomController.getAllClassrooms()
+Route::get('classrooms/getall', [ClassroomController::class, 'getAllClassrooms']);
 Route::get('classrooms/get/{id}', [ClassroomController::class, 'findClassroom']);
 Route::post('addclassroom',[ClassroomController::class, 'postClassroom']);
 Route::delete('deleteclassroom/{id}', [ClassroomController::class, 'deleteClassroom']);
@@ -78,7 +72,8 @@ Route::get('/timeandclass/report-pdf', [ClassroomController::class, 'downloadPDF
 Route::get('/timeandclass/show-report', [ClassroomController::class, 'showReport']); //HTML Report
 
 
-// -- sadeesha
+// SADISHA ============================
+// --> attendance
 Route::get('/attendance/repattendanceReport-pdf', [AttendanceController::class, 'PDFdownload']);//attendance report eka
 Route::get('/attendance/attendanceReport', function() {
     PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);

@@ -11,28 +11,20 @@ class ClassroomController extends Controller
     // Add (Insert) Classroom
     public function postClassroom (Request $request) {
         $classroom = new Classroom();
-
         $classroom->cid = $request->input('classId');
         $classroom->capacity = $request->input('capacity');
         $classroom->width = $request->input('width');
         $classroom->length = $request->input('length');
         $classroom->resources = $request->input('resources');
-
         $classroom->save();
-
         return response()->json(['return'=>$classroom, 'response'=>true], 201);
     }
 
-
-
     // Get All Classrooms
     public function getAllClassrooms () {
-
         $allClassrooms = Classroom::all();
         return response()->json(['allClassrooms'=>$allClassrooms], 200);
     }
-
-
 
     //Delete a Classroom
     public function deleteClassroom ($cid) {
@@ -48,37 +40,26 @@ class ClassroomController extends Controller
         ]);
     }
 
-
-
     //Update a Classroom
     public function putClassroom(Request $request, $id){ 
         $classroom = Classroom::find($id);
-
         if(!$classroom){
             return response()->json(['msg'=>"Classroom not found"],404);
         }
-
         $classroom->cid = $request->input('classId');
         $classroom->capacity = $request->input('capacity');
         $classroom->width = $request->input('width');
         $classroom->length = $request->input('length');
         $classroom->resources = $request->input('resources');
-
-        
-
         $classroom->save();
         return response()->json(['msg'=>$classroom],200);
    }
-
-
 
     //Show Report as HTML
     public function showReport () {
         $data = Classroom::all();
         return view('report', ['classrooms' => $data]);
     }
-
-
     
     //Generate and Download PDF
     public function downloadPDF () {
@@ -86,7 +67,6 @@ class ClassroomController extends Controller
         $pdf = PDF::loadView('report', ['classrooms' => $classroom]);
         return $pdf->download('report.pdf');
     }
-
 
     //Find a Timeschedule
     public function findClassroom ($id) {

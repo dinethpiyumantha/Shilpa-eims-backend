@@ -33,17 +33,14 @@
         </div>
     </div>
     <h3 style="margin-bottom:10px;">Attendance Report</h3>
-
     <table id="cr">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Student Name</th>
                 <th>subject</th>
-                
             </tr>
         </thead>
-        
         <tbody>
             <?php $count = 0; ?>
             @foreach($attendances as $Attendance)
